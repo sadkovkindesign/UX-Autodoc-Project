@@ -1,0 +1,1795 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-top: 75px;
+    font-family: "Open Sans", sans-serif;
+    background-color: #FFFFFF;
+    color: #131C20;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Фиксированный контейнер макета 1440px */
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/*--------- Хедер -----------*/
+
+/* Включаем плавный скролл для всей страницы */
+html {
+    scroll-behavior: smooth;
+    /* Учитываем высоту фиксированного хедера (около 75px), чтобы заголовки секций не перекрывались */
+    scroll-padding-top: 80px;
+}
+
+/*--------- Хедер -----------*/
+
+.main_header {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 18px 0;
+
+    /* Фиксация вверху экрана */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.header_container {
+    max-width: 1440px;
+    /* Ограничиваем ширину по сетке */
+    margin: 0 auto;
+    /* Центрируем хедер на экране */
+    display: flex;
+    justify-content: center;
+    /* Центрируем элементы внутри */
+    align-items: center;
+    padding: 0 60px;
+    /* Отступы по бокам */
+    box-sizing: border-box;
+}
+
+.header_nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header_nav a {
+    text-decoration: none;
+    color: #7C7C7C;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+}
+
+.header_nav a:hover {
+    color: #F85A00;
+}
+
+/* Активное состояние кнопки (оранжевая плашка) */
+.header_nav a.nav_btn_active {
+    background-color: #F85A00;
+    color: #FFFFFF;
+}
+
+.header_nav a.nav_btn_active:hover {
+    background-color: #F85A00;
+    color: #FFFFFF;
+}
+
+.burger_icon {
+    display: none;
+    cursor: pointer;
+}
+
+
+/*------------------ Hero секция (Strict Pixel Perfect) --------------*/
+
+.hero_section {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 60px 40px 60px;
+    /* Слева 60px по вертикальной линии, справа 0 */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Левый контент фиксированной высоты 461px — как у картинки */
+.hero_content {
+    width: 100%;
+    max-width: 680px;
+    height: 461px;
+    /* Строгая высота по верхней и нижней направляющим */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Верх выравнивается по y:0, низ — по y:461px */
+}
+
+.hero_top_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero_brand {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.hero_brand svg {
+    display: block;
+    /* Убираем нижний межстрочный отступ у SVG */
+}
+
+.hero_title {
+    font-size: 50px;
+    line-height: 52px;
+    font-weight: 800;
+    color: #131C20;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    max-width: 620px;
+}
+
+.hero_subtitle {
+    font-size: 14px;
+    line-height: 20px;
+    color: #525C62;
+    font-weight: 400;
+    max-width: 480px;
+}
+
+/* Блок статистики прижимается строго к нижней направляющей */
+.hero_stats {
+    display: flex;
+    gap: 24px;
+    max-width: 640px;
+}
+
+.stat_card {
+    flex: 1;
+    border-left: 2px solid #F85A00;
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat_label {
+    font-size: 8px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.stat_text {
+    font-size: 10px;
+    line-height: 16px;
+    color: #131C20;
+    font-weight: 600;
+}
+
+/* Правый графический блок (461px) */
+.hero_graphics {
+    position: relative;
+    width: 605px;
+    height: 461px;
+    flex-shrink: 0;
+}
+
+.hero_bg_pattern {
+    width: 605px;
+    height: 461px;
+}
+
+.hero_bg_pattern svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hero_logo_overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/*------------------ Секция «Ключевые функции» (1440px x 490.92px) --------------*/
+
+.features_section {
+    width: 1440px;
+    height: 490.92px;
+    padding: 60px 60px 80px 60px;
+    /* Боковые отступы 60px по сетке */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.features_title {
+    font-size: 25px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    letter-spacing: -0.5px;
+}
+
+.features_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+    height: 290px;
+    /* Точная высота контентной области */
+}
+
+/* Сетка карточек 2х2 */
+.features_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 335px);
+    grid-template-rows: repeat(2, 133px);
+    gap: 24px;
+}
+
+.feature_card {
+    background-color: #F3F4F5;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.feature_card h3 {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #131C20;
+}
+
+.feature_card p {
+    font-size: 12px;
+    line-height: 19px;
+    color: #525C62;
+    font-weight: 400;
+}
+
+/* Правая темная карточка */
+.goals_card {
+    width: 680px;
+    height: 290px;
+    background-color: #041A24;
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.goals_label {
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.goals_text {
+    font-size: 15px;
+    line-height: 28px;
+    color: #FFFFFF;
+    font-weight: 400;
+    max-width: 580px;
+}
+
+/*------------------ Секция «Портреты пользователей» --------------*/
+
+.personas_section {
+    width: 100%;
+    background-color: #F1F1F1;
+    padding: 60px 0 80px 0;
+    box-sizing: border-box;
+}
+
+/* Внутренний контейнер по сетке (1440px) */
+.personas_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.personas_header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.section_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section_title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    margin-bottom: 12px;
+}
+
+.section_subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    color: #525C62;
+    max-width: 600px;
+}
+
+/* Контейнер колонок */
+.personas_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 45px;
+}
+
+.persona_wrapper {
+    width: 648px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Теги НАД карточками */
+.persona_tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+/* Единый и чистый класс карточки (без дублирования) */
+.persona_card {
+    height: 520px;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative; /* Нужно для работы плавной тени */
+    
+    /* Базовая легкая тень, которая есть у карточки всегда */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+    /* Плавность для подъема и рамки */
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, border-color;
+}
+
+.persona_card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    opacity: 0; /* Изначально тень полностью невидима */
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Плавное проявление */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Тёмная карточка (Марк) */
+.persona_dark {
+    background-color: #041A24;
+    color: #FFFFFF;
+    border: 1px solid #041A24;
+}
+
+.persona_dark::before {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+}
+
+.persona_light::before {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+}
+
+.persona_dark .persona_info h3 {
+    color: #F85A00;
+}
+
+.persona_dark .persona_info p,
+.persona_dark .block_desc,
+.persona_dark .persona_col li {
+    color: #D1D5DB;
+}
+
+.persona_dark .block_label,
+.persona_dark .persona_col h4 {
+    color: #FFFFFF;
+}
+
+.persona_dark .persona_col li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #F85A00;
+    font-weight: 700;
+}
+
+/* Светлая карточка (Елена) */
+.persona_light {
+    background-color: white;
+    color: #131C20;
+    border: 1px solid #E5E7EB;
+}
+
+.persona_light .persona_info h3 {
+    color: #F85A00;
+}
+
+.persona_light .persona_info p,
+.persona_light .block_desc,
+.persona_light .persona_col li {
+    color: #525C62;
+}
+
+.persona_light .block_label,
+.persona_light .persona_col h4 {
+    color: #131C20;
+}
+
+.persona_light .persona_col li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #F85A00;
+    font-weight: 700;
+}
+
+/* Элементы внутри карточки */
+.persona_profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.persona_avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.persona_card:hover .persona_avatar {
+    transform: scale(1.08);
+}
+
+.persona_info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.persona_info p {
+    font-size: 13px;
+}
+
+.persona_block {
+    margin-bottom: 24px;
+}
+
+.block_label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.block_desc {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+/* Сетка параметров 2х2 внутри карточки */
+.persona_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 21px;
+}
+
+.persona_col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.persona_col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.persona_col li {
+    font-size: 12px;
+    line-height: 17px;
+    position: relative;
+    padding-left: 16px;
+}
+
+/*------------------ Hover эффекты (плавные) ------------------*/
+
+.persona_dark:hover,
+.persona_light:hover {
+    transform: translateY(-5px); /* Плавный подъем карточки вверх */
+    border-color: #F85A00;     /* Плавная смена цвета рамки */
+}
+
+/* Проявляем красивую тень через opacity (это дает 100% плавность без рывков) */
+.persona_card:hover::before {
+    opacity: 1;
+}
+
+/*------------------ Секция «Сценарий: покупка фильтра» --------------*/
+
+.flow_section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 60px 0 80px 0;
+    box-sizing: border-box;
+}
+
+.flow_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Анимация проявления шапки секции */
+.flow_header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Анимация проявления карточек Цель/Контекст */
+.flow_info_box {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    opacity: 0;
+    /* Скрыто до начала анимации */
+}
+
+.info_card {
+    flex: 1;
+    background-color: #F8F9FA;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #E5E7EB;
+}
+
+.info_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.info_text {
+    font-size: 13px;
+    line-height: 19px;
+    color: #131C20;
+    font-weight: 500;
+}
+
+/* Сетка шагов */
+.flow_steps_grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 16px;
+}
+
+.flow_step_card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+
+    /* Анимация плавного выезда */
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Каскадная задержка выезда для колонок */
+.flow_step_card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.flow_step_card:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+.flow_step_card:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.flow_step_card:nth-child(4) {
+    animation-delay: 0.30s;
+}
+
+.flow_step_card:nth-child(5) {
+    animation-delay: 0.35s;
+}
+
+.flow_step_card:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+.flow_step_card:nth-child(7) {
+    animation-delay: 0.45s;
+}
+
+/* Мокап приложения */
+.screen_mockup {
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    background-color: #F1F1F1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E5E7EB;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screen_mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hover-эффект при наведении на шаг */
+.flow_step_card:hover .screen_mockup {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Тексты под экранами */
+.step_content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.step_content h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #131C20;
+    line-height: 18px;
+}
+
+.advantage_text,
+.disadvantage_text {
+    font-size: 11px;
+    line-height: 15px;
+    color: #525C62;
+}
+
+.advantage_text span {
+    font-weight: 700;
+    color: #131C20;
+}
+
+.disadvantage_text span {
+    font-weight: 700;
+    color: #F85A00;
+}
+
+/*------------------ Секция CJM ------------------*/
+
+.cjm_section {
+    width: 100%;
+    background-color: #132530;
+    padding: 70px 0;
+    box-sizing: border-box;
+}
+
+.cjm_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    box-sizing: border-box;
+}
+
+.cjm_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cjm_title_box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.section_label_orange {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.cjm_main_title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+    margin: 0;
+}
+
+.cjm_description {
+    font-size: 14px;
+    color: #A0AEC0;
+    max-width: 440px;
+    line-height: 20px;
+    text-align: right;
+    margin: 0;
+}
+
+/* Обертка таблицы */
+.cjm_table_wrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cjm_table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+}
+
+/* Шапка таблицы */
+.cjm_table th {
+    background-color: #F85A00;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 16px 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 16px;
+    border: 1px solid #FFFFFF;
+}
+
+.cjm_table th.th_corner {
+    width: 13%;
+    border: 1px solid #FFFFFF;
+}
+
+/* Обычные белые ячейки */
+.cjm_table td {
+    background-color: #FFFFFF;
+    color: #131C20;
+    font-size: 11px;
+    line-height: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    border: 1px solid #E2E8F0;
+}
+
+/* Заголовки строк слева */
+.cjm_table td.row_title {
+    background-color: #F85A00;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+}
+
+/* Желтоватый фон для вертикальных столбцов Шаг 4, 5 и 7 */
+.cjm_table td.col_warning {
+    background-color: #FFF9E6;
+    border: 1px solid #E2E8F0;
+}
+
+/* Эмодзи ячейка */
+.cjm_table td.emoji_cell {
+    font-size: 22px;
+    padding: 8px;
+}
+
+
+/*------------------ Секция «Глубинное интервью» --------------*/
+
+.interviews_section {
+    width: 100%;
+    background-color: #F1F1F1;
+    /* Светло-серый фон всей секции */
+    padding: 60px 0 80px 0;
+    box-sizing: border-box;
+}
+
+.interviews_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    box-sizing: border-box;
+}
+
+/* Шапка секции */
+.interviews_header {
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.interviews_header .section_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.interviews_header .section_title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    margin-bottom: 12px;
+}
+
+.interviews_header .section_subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    color: #525C62;
+    max-width: 620px;
+}
+
+/* Список рядов (по 1 респонденту в ряду) */
+.interviews_list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Ряд: Двухколоночный расклад */
+.interview_row {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    opacity: 0;
+
+    /* Анимация проявления ряда */
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Каскадный задержка показа рядов */
+.interview_row:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.interview_row:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.interview_row:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Основная светлая карточка (Q&A) */
+.interview_main_card {
+    flex: 1;
+    /* Занимает большую часть ширины (~900px) */
+    background-color: #FFFFFF;
+    border-radius: 0 16px 16px 16px;
+    padding: 36px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Тёмная карточка выводов справа */
+.interview_sidebar_card {
+    width: 380px;
+    /* Узкая фиксированная колонка справа */
+    height: fit-content;
+    background-color: #1F3746;
+    /* Фирменный темный сине-зеленый */
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 8px 24px rgba(4, 26, 36, 0.2);
+}
+
+.interview_sidebar_card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 22px;
+    margin-bottom: 0;
+}
+
+.divider_orange {
+    border: none;
+    height: 2px;
+    background-color: #F85A00;
+    width: 100%;
+    margin: 16px 0;
+}
+
+.interview_sidebar_card p {
+    font-size: 13px;
+    line-height: 20px;
+    color: #D1D5DB;
+    /* Светло-серый читаемый текст */
+}
+
+/* Профиль респондента */
+.respondent_profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.respondent_avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.respondent_info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #131C20;
+    margin-bottom: 2px;
+}
+
+.respondent_info p {
+    font-size: 12px;
+    color: #7C7C7C;
+}
+
+/* Контекст */
+.context_text {
+    font-size: 13px;
+    line-height: 19px;
+    color: #525C62;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.context_text strong {
+    color: #131C20;
+}
+
+/* Список Вопрос - Ответ */
+.qa_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.qa_list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.qa_list h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #131C20;
+    line-height: 18px;
+}
+
+.qa_list p {
+    font-size: 12px;
+    line-height: 18px;
+    color: #525C62;
+}
+
+/* Оранжевый акцентный текст в цитатах */
+.highlight_orange {
+    color: #F85A00;
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* Анимация проявления */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*------------------ Секция «Инсайты и проблемы» --------------*/
+
+.hypotheses_section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.hypotheses_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+/* Шапка секции */
+.hypotheses_header {
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hypotheses_header .section_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hypotheses_header .section_title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    margin-bottom: 12px;
+}
+
+.hypotheses_header .section_subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    color: #525C62;
+    max-width: 620px;
+}
+
+/* Сетка 2х2 */
+.hypotheses_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 32px;
+}
+
+.hypothesis_card {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Каскадный показ */
+.hypothesis_card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hypothesis_card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.hypothesis_card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.hypothesis_card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Оранжевые цифры */
+.card_number {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.card_title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #131C20;
+    margin-bottom: 16px;
+    line-height: 24px;
+}
+
+.card_insight,
+.card_problem {
+    font-size: 12px;
+    line-height: 18px;
+    color: #525C62;
+    margin-bottom: 12px;
+}
+
+.card_insight strong,
+.card_problem strong {
+    color: #131C20;
+}
+
+/* Серый блок гипотезы со С К Р У Г Л Е Н И Е М со всех сторон */
+.hypothesis_box {
+    background-color: #F1F1F1;
+    border-radius: 12px;
+    /* Полноценное скругление по всем 4 углам */
+    border-left: 6px solid #F85A00;
+    /* Оранжевый акцент слева */
+    padding: 20px 24px;
+    margin-top: auto;
+    /* Прижимает плашки к низу для ровного выравнивания в ряду */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    /* Гарантирует аккуратные скруглённые края */
+}
+
+.hypothesis_box p {
+    font-size: 12px;
+    line-height: 18px;
+    color: #525C62;
+    margin: 0;
+}
+
+.hypothesis_box strong {
+    color: #131C20;
+}
+
+/*------------------ Секция «Конкурентный анализ» --------------*/
+
+.competitor_section {
+    width: 100%;
+    background-color: #F1F1F1;
+    /* Серый фон во всю ширину экрана */
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.competitor_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+/* Шапка */
+.competitor_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.competitor_header_left {
+    display: flex;
+    flex-direction: column;
+}
+
+.competitor_logo {
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.competitor_header .section_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.competitor_header .section_title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    margin-bottom: 12px;
+}
+
+.competitor_header .section_subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    color: #525C62;
+    max-width: 620px;
+}
+
+/* Карточки Цель и Контекст */
+.competitor_info_box {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 8px;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    opacity: 0;
+}
+
+.competitor_info_box .info_card {
+    flex: 1;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #E5E7EB;
+}
+
+/* Сетка из 6 колонок */
+.competitor_steps_grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.competitor_step_card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Каскадный показ */
+.competitor_step_card:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.competitor_step_card:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+.competitor_step_card:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.competitor_step_card:nth-child(4) {
+    animation-delay: 0.30s;
+}
+
+.competitor_step_card:nth-child(5) {
+    animation-delay: 0.35s;
+}
+
+.competitor_step_card:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+/* Мокап мобильного экрана */
+.competitor_step_card .screen_mockup {
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E5E7EB;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.competitor_step_card .screen_mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.competitor_step_card:hover .screen_mockup {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Тексты описания шагов */
+.competitor_step_card .step_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.competitor_step_card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #131C20;
+    line-height: 18px;
+}
+
+.problem_text,
+.solution_text,
+.benefit_text {
+    font-size: 11px;
+    line-height: 15px;
+    color: #525C62;
+    margin: 0;
+}
+
+.problem_text strong,
+.solution_text strong,
+.benefit_text strong {
+    color: #131C20;
+}
+
+/*------------------ Секция «Создание вайрфреймов» --------------*/
+
+.wireframes_section {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.wireframes_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    box-sizing: border-box;
+}
+
+/* Шапка */
+.wireframes_header {
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.wireframes_header .section_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.wireframes_header .section_title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    margin-bottom: 12px;
+}
+
+.wireframes_header .section_subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    color: #525C62;
+    max-width: 620px;
+}
+
+/* Сетка из 6 шагов */
+.wireframes_steps_grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.wireframe_step_card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Оранжевые заголовки шагов */
+.wireframe_step_card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #F85A00;
+    /* Весь заголовок "Шаг X. Название" теперь оранжевый */
+    line-height: 18px;
+}
+
+/* Выделение цифры и слова "Шаг" оранжевым */
+.wireframe_step_card h3 .step_num {
+    color: #F85A00;
+    font-weight: 800;
+}
+
+.step_content h3 .step_num {
+    color: #F85A00;
+    font-weight: 800;
+}
+
+/* Каскадная задержка выезда */
+.wireframe_step_card:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+.wireframe_step_card:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.wireframe_step_card:nth-child(3) {
+    animation-delay: 0.26s;
+}
+
+.wireframe_step_card:nth-child(4) {
+    animation-delay: 0.34s;
+}
+
+.wireframe_step_card:nth-child(5) {
+    animation-delay: 0.42s;
+}
+
+.wireframe_step_card:nth-child(6) {
+    animation-delay: 0.50s;
+}
+
+/* Мокап экрана вайрфрейма */
+.wireframe_step_card .screen_mockup {
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    background-color: #F8F9FA;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E5E7EB;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wireframe_step_card .screen_mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.wireframe_step_card:hover .screen_mockup {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Описание шага */
+.wireframe_step_card .step_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wireframe_step_card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #131C20;
+    line-height: 18px;
+}
+
+.improvement_text,
+.benefit_text {
+    font-size: 11px;
+    line-height: 15px;
+    color: #525C62;
+    margin: 0;
+}
+
+.improvement_text strong,
+.benefit_text strong {
+    color: #131C20;
+}
+
+/*------------------ Секция «Итоги исследования и выводы» --------------*/
+
+.conclusions_section {
+    width: 100%;
+    background-color: #F8F9FA;
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.conclusions_container_inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+/* Шапка */
+.conclusions_header {
+    display: flex;
+    flex-direction: column;
+}
+
+.conclusions_header .section_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.conclusions_header .section_title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 800;
+    color: #131C20;
+    margin-bottom: 12px;
+}
+
+.conclusions_header .section_subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    color: #525C62;
+    max-width: 680px;
+}
+
+/* Сетка */
+.conclusions_content_grid {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+.conclusions_left_col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conclusions_right_col {
+    width: 420px;
+    flex-shrink: 0;
+}
+
+/* Блоки с текстом */
+.conclusions_block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.block_subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #131C20;
+    line-height: 18px;
+}
+
+.conclusions_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.conclusions_list li {
+    font-size: 12px;
+    line-height: 18px;
+    color: #525C62;
+    position: relative;
+    padding-left: 18px;
+}
+
+/* Оранжевый дефис */
+.conclusions_list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #F85A00;
+    font-weight: 700;
+}
+
+/* Тёмная карточка справа */
+.summary_dark_card {
+    background-color: #041A24;
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 12px 32px rgba(4, 26, 36, 0.15);
+}
+
+.summary_label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #F85A00;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.summary_text {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.summary_text strong {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+/*------------------ Футер ------------------*/
+
+.main_footer {
+    width: 100%;
+    height: 260px;
+    background-color: #041A24;
+    /* Тёмный сине-зеленый фон */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer_container_inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Логотип */
+.footer_logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer_logo svg {
+    display: block;
+    height: 20px;
+    width: auto;
+}
+
+/* Текстовый блок справа */
+.footer_text_box {
+    max-width: 520px;
+}
+
+.footer_text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #A0AEC0;
+    /* Светло-серый читаемый цвет */
+    margin: 0;
+    font-weight: 400;
+}
+
+/*------------------ Универсальная анимация появления при скролле ------------------*/
+
+.not-visible-yet {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+
+/* Начальное состояние элементов героя (до загрузки страницы) */
+.hero_content,
+.hero_graphics {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform, filter;
+}
+
+/* Задержка для графики, чтобы она появлялась чуть позже текста */
+.hero_graphics {
+    transition-delay: 0.2s;
+}
+
+/* Класс, который активирует анимацию при загрузке */
+.hero_loaded .hero_content,
+.hero_loaded .hero_graphics {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
