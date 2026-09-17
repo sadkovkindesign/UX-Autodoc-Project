@@ -867,7 +867,6 @@ html {
 .interviews_section {
     width: 100%;
     background-color: #F1F1F1;
-    /* Светло-серый фон всей секции */
     padding: 60px 0 80px 0;
     box-sizing: border-box;
 }
@@ -926,12 +925,10 @@ html {
     gap: 24px;
     align-items: stretch;
     opacity: 0;
-
-    /* Анимация проявления ряда */
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Каскадный задержка показа рядов */
+/* Каскадная задержка показа рядов */
 .interview_row:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -947,7 +944,6 @@ html {
 /* Основная светлая карточка (Q&A) */
 .interview_main_card {
     flex: 1;
-    /* Занимает большую часть ширины (~900px) */
     background-color: #FFFFFF;
     border-radius: 0 16px 16px 16px;
     padding: 36px;
@@ -957,15 +953,14 @@ html {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    transition: box-shadow 0.3s ease; /* Плавное появление тени */
 }
 
 /* Тёмная карточка выводов справа */
 .interview_sidebar_card {
     width: 380px;
-    /* Узкая фиксированная колонка справа */
     height: fit-content;
     background-color: #1F3746;
-    /* Фирменный темный сине-зеленый */
     border-radius: 16px;
     padding: 32px 28px;
     box-sizing: border-box;
@@ -996,7 +991,6 @@ html {
     font-size: 13px;
     line-height: 20px;
     color: #D1D5DB;
-    /* Светло-серый читаемый текст */
 }
 
 /* Профиль респондента */
@@ -1067,11 +1061,22 @@ html {
     color: #525C62;
 }
 
-/* Оранжевый акцентный текст в цитатах */
+/* Акцентный текст: по умолчанию выглядит как обычный текст в ответах */
 .highlight_orange {
-    color: #F85A00;
+    color: #414141; /* Наследует цвет обычного текста */
     font-style: italic;
     font-weight: 600;
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+/* При наведении на карточку текст подсвечивается оранжевым */
+.interview_main_card:hover .highlight_orange {
+    color: #F85A00;
+}
+
+/* Эффект тени и подсветка карточки при наведении */
+.interview_main_card:hover {
+    box-shadow: 0 10px 30px rgba(4, 26, 36, 0.12);
 }
 
 /* Анимация проявления */
@@ -1080,7 +1085,6 @@ html {
         opacity: 0;
         transform: translateY(30px);
     }
-
     100% {
         opacity: 1;
         transform: translateY(0);
